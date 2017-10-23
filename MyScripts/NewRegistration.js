@@ -1,4 +1,4 @@
-﻿app.controller('NewRegistrationController', function ($scope, RTOServices) {
+﻿app.controller('NewRegistrationController', function ($scope, $location, RTOServices) {
     $scope.RegId = 0;
     $scope.save = function () {
         var data = {

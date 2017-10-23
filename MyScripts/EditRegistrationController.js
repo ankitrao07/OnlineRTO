@@ -19,13 +19,13 @@
 
     $scope.save = function () {
         var Details = {
-            VehicleName: $scope.Details.VehicleName,
             Email: $scope.Details.Email,
             Owner: $scope.Details.Owner,
-            Manufacture: $scope.Details.Manufacture,
+            Manufacture: $scope.Details.Manufacturer,
+            Vehicle: $scope.Details.Vehicle,
             ChasisNo: $scope.Details.ChasisNo,
             Engine: $scope.Details.Engine,
-            Color: $scope.Details.Color,
+            Color: $scope.Details.color,
             Email: $scope.Details.Email,
             Address: $scope.Details.Address,
             Mobile: $scope.Details.Mobile,

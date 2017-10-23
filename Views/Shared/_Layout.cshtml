@@ -25,8 +25,8 @@
 if (Session["UID"] != null)
 {
                 <ul class="nav navbar-nav">
-                    <li>@Convert.ToString(Session["Name"])</li>
-                    <li><a href="/Account/Logout">Log Out</a></li>
+                    <li><a href="#">@Convert.ToString(Session["Name"])</a></li>
+                    <li><a href="/Logout">Log Out</a></li>
                 </ul>
 }
 else if(Session["UID"] == null)

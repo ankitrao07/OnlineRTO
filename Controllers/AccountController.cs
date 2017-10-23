@@ -41,10 +41,10 @@ namespace OnlineRTO.Controllers
 
         public ActionResult Logout()
         {
-            HttpContext.Session["UserName"] = null;
-            HttpContext.Session["UserRole"] = null;
+            HttpContext.Session["Name"] = null;
+            HttpContext.Session["Role"] = null;
             HttpContext.Session["UID"] = null;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Account");
         }
 	}
 }

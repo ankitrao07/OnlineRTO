@@ -9,14 +9,14 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineRTO.Models;
-using eRTO;
-using eRTO.ViewModel;
+using OnlineRTo;
+using OnlineRTo.ViewModel;
 
 namespace OnlineRTO.Controllers
 {
     public class RegistrationAPIController : ApiController
     {
-        private CompanyEntities db = new CompanyEntities();
+        
         static readonly IRegistration repository = new RegistrationRepositories();
         
         public IEnumerable<Registration> GetRegistrations()
@@ -27,7 +27,7 @@ namespace OnlineRTO.Controllers
 
         // GET: api/RegistrationAPI/5
         [ResponseType(typeof(Registration))]
-        public IHttpActionResult GetEmployeeInfo(int id)
+        public IHttpActionResult GetRegistrationInfo(int id)
         {
            
             Registration regInfo = repository.GetDatabyRegId(id);
@@ -55,7 +55,7 @@ namespace OnlineRTO.Controllers
 
         // POST: api/RegistrationAPI
         [ResponseType(typeof(Registration))]
-        public IHttpActionResult PostEmployeeInfo(Registration obj)
+        public IHttpActionResult PostRegistrationInfo(Registration obj)
         {
             if (!ModelState.IsValid)
             {
@@ -64,6 +64,20 @@ namespace OnlineRTO.Controllers
             obj.TempRegistrationNo = Utility.GenerateTempRegNo();
             repository.NewRegistration(obj);
             return CreatedAtRoute("DefaultApi", new { id = obj.RegId }, obj);
+        }
+
+        [HttpGet]
+        [Route("api/RegistrationAPI/GetPendings")]
+        public IEnumerable<Registration> GetPendingRegistration()
+        {
+            return repository.GetPendingRegistration();
+        }
+        [HttpPut]
+        [Route("api/RegistrationAPI/Approve/{id}")]
+        public IHttpActionResult Approve(int id,Registration obj)
+        {
+            repository.Approve(id, obj);
+            return Ok();
         }
   
     }

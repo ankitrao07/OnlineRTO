@@ -10,7 +10,7 @@
 </div>
 <div class="row">
     <div>
-       <table>
+        <table class="table table-striped table-bordered table-hover" id="tblDashBoard" cellspacing="0" align="center" style="width:100%;" ng-cloak>
             <tr>
                 <td><label class="col-md-4">Vehicle Owner:</label></td>
                 <td><input type="text" class="col-md-8" data-ng-model="Details.Owner" placeholder="Vehicle Owner" /></td>
@@ -29,11 +29,11 @@
             </tr>
             <tr>
                 <td><label class="col-md-4">Manufacture:</label></td>
-                <td><input type="text" class="col-md-8" data-ng-model="Details.Manufacture" placeholder="Manufacturer" /></td>
+                <td><input type="text" class="col-md-8" data-ng-model="Details.Manufacturer" placeholder="Manufacturer" /></td>
             </tr>
             <tr>
                 <td><label class="col-md-4">Vehicle:</label></td>
-                <td><input type="text" class="col-md-8" data-ng-model="Details.VehicleName" placeholder="Vehicle Name" /></td>
+                <td><input type="text" class="col-md-8" data-ng-model="Details.Vehicle" placeholder="Vehicle Name" /></td>
             </tr>
             <tr>
                 <td><label class="col-md-4">Chasis No:</label></td>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td><label class="col-md-4">Color:</label></td>
-                <td><input type="text" class="col-md-8" data-ng-model="Details.Color" placeholder="Color" /></td>
+                <td><input type="text" class="col-md-8" data-ng-model="Details.color" placeholder="Color" /></td>
             </tr>
             <tr>
                 <td><label class="col-md-4">Engine(cc):</label></td>
@@ -49,7 +49,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td><button class="btn btn-default" type="submit" data-ng-click="save();" value="Update">Update</button></td>
+                <td><button class="btn btn-primary" type="submit" data-ng-click="save();" value="Update">Update</button></td>
+
             </tr>
 
         </table>

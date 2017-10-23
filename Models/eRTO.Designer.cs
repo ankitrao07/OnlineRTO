@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ankit.kumar.KELLGGNCPU0148\Downloads\SPA-Angularjs-ASPNET-WebAPI-master\SPA-Angularjs-ASPNET-WebAPI-master\MVC_Using_Angular\Models\eRTO.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ankit.kumar.KELLGGNCPU0148\Downloads\SPA-Angularjs-ASPNET-WebAPI-master\OnlineRTO-Services\MVC_Using_Angular\Models\eRTO.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

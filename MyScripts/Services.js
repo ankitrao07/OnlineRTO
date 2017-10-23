@@ -31,11 +31,19 @@
     };
 
     //RTO role Scripts here to approve or reject the Regisration Request
-    this.getPendingRegistrations=function()
-    {
+    this.getPendingRegistrations = function () {
         debugger;
-        return $http.get("api/RTOAPI");
-    }
+        return $http.get("/api/RegistrationAPI/GetPendings");
+    };
+    this.approveRegistration = function (RegId,Details) {
+        debugger;
+        var request = $http({
+            method: "put",
+            url: "/api/RegistrationAPI/Approve/" + RegId,
+            data: Details
+        });
+        return request;
+    };
 });
 
 

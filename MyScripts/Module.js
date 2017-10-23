@@ -30,6 +30,12 @@
                                 templateUrl: 'RTO/ShowPendingRegistration',
                                 controller: 'ApproveRegistrationController'
                             });
+
+       $routeProvider.when('/Logout',
+                          {
+                              templateUrl: 'Account/Logout',
+                              controller:'LogoutController'
+                          });
         $routeProvider.otherwise(
                             {
                                 redirectTo: '/'

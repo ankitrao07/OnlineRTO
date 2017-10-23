@@ -7,26 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-public partial class eRTOEntities : DbContext
+namespace OnlineRTO.Models
 {
-    public eRTOEntities()
-        : base("name=eRTOEntities")
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
+    public partial class eRTOEntities : DbContext
     {
+        public eRTOEntities()
+            : base("name=eRTOEntities")
+        {
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
+        public virtual DbSet<CityMaster> CityMasters { get; set; }
+        public virtual DbSet<Dealer> Dealers { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Registration> Registrations { get; set; }
+        public virtual DbSet<RTO> RTOes { get; set; }
+        public virtual DbSet<StateMaster> StateMasters { get; set; }
     }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
-
-    public virtual DbSet<CityMaster> CityMasters { get; set; }
-    public virtual DbSet<Dealer> Dealers { get; set; }
-    public virtual DbSet<Login> Logins { get; set; }
-    public virtual DbSet<Registration> Registrations { get; set; }
-    public virtual DbSet<RTO> RTOes { get; set; }
-    public virtual DbSet<StateMaster> StateMasters { get; set; }
 }

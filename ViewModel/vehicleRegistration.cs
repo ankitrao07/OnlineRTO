@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace eRTO.ViewModel
+namespace OnlineRTo.ViewModel
 {
     public class vehicleRegistration
     {
@@ -11,7 +11,7 @@ namespace eRTO.ViewModel
         public int State { get; set; }
         public string TempRegistration { get; set; }
         public string Owner {get;set;}
-        public string VehicleName{get;set;}
+        public string Vehicle{get;set;}
         public string Manufacture { get; set; }
         public string ChasisNo { get; set; }
         public string Engine { get; set; }

@@ -1,4 +1,4 @@
-﻿using eRTO.ViewModel;
+﻿using OnlineRTo.ViewModel;
 using OnlineRTO.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace OnlineRTO.Models
         {
             return new Registration{
                 Owner = objVehicle.Owner,
-                Vehicle = objVehicle.VehicleName,
+                Vehicle = objVehicle.Vehicle,
                 Manufacturer = objVehicle.Manufacture,
                 ChasisNo = objVehicle.ChasisNo,
                 Engine = objVehicle.Engine,
