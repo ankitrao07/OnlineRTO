@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "RTO Approval";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<body ng-app="ApplicationModule">
+    <div>
+        <div>
+            <div>
+                <table>
+                    <tr>
+                        <td><a href="showpendingRegistration"> Pending Registration</a></td>
+                        <td><a href="newregistration"> New Registration </a></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+@section scripts{
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/MyScripts/Module.js")"></script>
+    <script src="~/MyScripts/Services.js"></script>
+   <script src="~/MyScripts/RegistrationApproval.js"></script>
+}

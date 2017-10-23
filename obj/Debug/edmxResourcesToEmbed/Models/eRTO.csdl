@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eRTOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Int32" />
+    <NavigationProperty Name="StateMaster" Relationship="Self.FK_CityMaster_ToState" FromRole="CityMaster" ToRole="StateMaster" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DealerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="RTO" Type="Int32" />
+    <Property Name="LoginID" Type="Int32" />
+    <NavigationProperty Name="Login" Relationship="Self.FK_Dealer_Login" FromRole="Dealer" ToRole="Login" />
+    <NavigationProperty Name="RTO1" Relationship="Self.FK_Dealer_RTO" FromRole="Dealer" ToRole="RTO" />
+    <NavigationProperty Name="Registrations" Relationship="Self.FK_Registration_ToDealer" FromRole="Dealer" ToRole="Registration" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Dealers" Relationship="Self.FK_Dealer_Login" FromRole="Login" ToRole="Dealer" />
+    <NavigationProperty Name="RTOes" Relationship="Self.FK_RTO_ToLogin" FromRole="Login" ToRole="RTO" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Name="RegId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegistrationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TempRegistrationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DealerID" Type="Int32" />
+    <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Vehicle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ChasisNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
+    <Property Name="ValidUpto" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RTOId" Type="Int32" />
+    <NavigationProperty Name="Dealer" Relationship="Self.FK_Registration_ToDealer" FromRole="Registration" ToRole="Dealer" />
+  </EntityType>
+  <EntityType Name="RTO">
+    <Key>
+      <PropertyRef Name="RTOId" />
+    </Key>
+    <Property Name="RTOId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LandlineNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="LoginID" Type="Int32" />
+    <NavigationProperty Name="Dealers" Relationship="Self.FK_Dealer_RTO" FromRole="RTO" ToRole="Dealer" />
+    <NavigationProperty Name="Login" Relationship="Self.FK_RTO_ToLogin" FromRole="RTO" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="CityMasters" Relationship="Self.FK_CityMaster_ToState" FromRole="StateMaster" ToRole="CityMaster" />
+  </EntityType>
+  <Association Name="FK_CityMaster_ToState">
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+    <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CityMaster">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dealer_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="Dealer">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dealer_RTO">
+    <End Role="RTO" Type="Self.RTO" Multiplicity="0..1" />
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RTO">
+        <PropertyRef Name="RTOId" />
+      </Principal>
+      <Dependent Role="Dealer">
+        <PropertyRef Name="RTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registration_ToDealer">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="DealerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RTO_ToLogin">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="RTO" Type="Self.RTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="RTO">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eRTOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CityMasters" EntityType="Self.CityMaster" />
+    <EntitySet Name="Dealers" EntityType="Self.Dealer" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Registrations" EntityType="Self.Registration" />
+    <EntitySet Name="RTOes" EntityType="Self.RTO" />
+    <EntitySet Name="StateMasters" EntityType="Self.StateMaster" />
+    <AssociationSet Name="FK_CityMaster_ToState" Association="Self.FK_CityMaster_ToState">
+      <End Role="StateMaster" EntitySet="StateMasters" />
+      <End Role="CityMaster" EntitySet="CityMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dealer_Login" Association="Self.FK_Dealer_Login">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="Dealer" EntitySet="Dealers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dealer_RTO" Association="Self.FK_Dealer_RTO">
+      <End Role="RTO" EntitySet="RTOes" />
+      <End Role="Dealer" EntitySet="Dealers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registration_ToDealer" Association="Self.FK_Registration_ToDealer">
+      <End Role="Dealer" EntitySet="Dealers" />
+      <End Role="Registration" EntitySet="Registrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RTO_ToLogin" Association="Self.FK_RTO_ToLogin">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="RTO" EntitySet="RTOes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

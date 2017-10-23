@@ -1,0 +1,35 @@
+﻿
+<div class="row">
+    <div>
+        <section id="sList" class="col-md-12 col-md-push-0">
+            <table class="table table-striped table-bordered table-hover" id="tblDashBoard" cellspacing="0" align="center" style="width:100%;" ng-cloak>
+                <thead>
+                    <tr>
+                        <th style="display: none;">RegId</th>
+                        <th>TempRegistration</th>
+                        <th>Manufacturer</th>
+                        <th>Vehicle</th>
+                        <th>OwnerName</th>
+                        <th>MobileNo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in RegistrationData">
+                        <td hidden="hidden">{{items.RegId}}</td>
+                        <td>{{items.TempRegistrationNo}}</td>
+                        <td>{{items.Manufacturer}}</td>
+                        <td>{{items.Vehicle}}</td>
+                        <td>{{items.Owner}}</td>
+                        <td>{{items.Mobile}}</td>
+                        <td>
+                            <button ng-click="editRegistration(items.RegId)">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </div>
+
+</div>

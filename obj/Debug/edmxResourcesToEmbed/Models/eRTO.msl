@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eRTOModelStoreContainer" CdmEntityContainer="eRTOEntities">
+    <EntitySetMapping Name="CityMasters">
+      <EntityTypeMapping TypeName="eRTOModel.CityMaster">
+        <MappingFragment StoreEntitySet="CityMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dealers">
+      <EntityTypeMapping TypeName="eRTOModel.Dealer">
+        <MappingFragment StoreEntitySet="Dealer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DealerName" ColumnName="DealerName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="RTO" ColumnName="RTO" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="eRTOModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="eRTOModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="RegId" ColumnName="RegId" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="TempRegistrationNo" ColumnName="TempRegistrationNo" />
+          <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="ChasisNo" ColumnName="ChasisNo" />
+          <ScalarProperty Name="Engine" ColumnName="Engine" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="ValidUpto" ColumnName="ValidUpto" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RTOId" ColumnName="RTOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RTOes">
+      <EntityTypeMapping TypeName="eRTOModel.RTO">
+        <MappingFragment StoreEntitySet="RTO">
+          <ScalarProperty Name="RTOId" ColumnName="RTOId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="LandlineNo" ColumnName="LandlineNo" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateMasters">
+      <EntityTypeMapping TypeName="eRTOModel.StateMaster">
+        <MappingFragment StoreEntitySet="StateMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

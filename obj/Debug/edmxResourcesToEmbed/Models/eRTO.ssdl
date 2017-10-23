@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eRTOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CityMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="varchar(max)" />
+    <Property Name="State" Type="int" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DealerName" Type="varchar(max)" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="10" />
+    <Property Name="EmailID" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="City" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="RTO" Type="int" />
+    <Property Name="LoginID" Type="int" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Role" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="RegId" />
+    </Key>
+    <Property Name="RegId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationNo" Type="varchar(max)" />
+    <Property Name="TempRegistrationNo" Type="varchar(max)" />
+    <Property Name="DealerID" Type="int" />
+    <Property Name="Owner" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="Manufacturer" Type="varchar(max)" />
+    <Property Name="Vehicle" Type="varchar(max)" />
+    <Property Name="ChasisNo" Type="varchar" MaxLength="100" />
+    <Property Name="Engine" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="RegistrationDate" Type="date" />
+    <Property Name="ValidUpto" Type="date" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="RTOId" Type="int" />
+  </EntityType>
+  <EntityType Name="RTO">
+    <Key>
+      <PropertyRef Name="RTOId" />
+    </Key>
+    <Property Name="RTOId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="MobileNo" Type="varchar(max)" />
+    <Property Name="LandlineNo" Type="varchar(max)" />
+    <Property Name="City" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="LoginID" Type="int" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="nchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_CityMaster_ToState">
+    <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="0..1" />
+    <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CityMaster">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dealer_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="Dealer">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dealer_RTO">
+    <End Role="RTO" Type="Self.RTO" Multiplicity="0..1" />
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RTO">
+        <PropertyRef Name="RTOId" />
+      </Principal>
+      <Dependent Role="Dealer">
+        <PropertyRef Name="RTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registration_ToDealer">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="0..1" />
+    <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="DealerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RTO_ToLogin">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="RTO" Type="Self.RTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="RTO">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eRTOModelStoreContainer">
+    <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dealer" EntityType="Self.Dealer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RTO" EntityType="Self.RTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CityMaster_ToState" Association="Self.FK_CityMaster_ToState">
+      <End Role="StateMaster" EntitySet="StateMaster" />
+      <End Role="CityMaster" EntitySet="CityMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dealer_Login" Association="Self.FK_Dealer_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Dealer" EntitySet="Dealer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dealer_RTO" Association="Self.FK_Dealer_RTO">
+      <End Role="RTO" EntitySet="RTO" />
+      <End Role="Dealer" EntitySet="Dealer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registration_ToDealer" Association="Self.FK_Registration_ToDealer">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RTO_ToLogin" Association="Self.FK_RTO_ToLogin">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="RTO" EntitySet="RTO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
