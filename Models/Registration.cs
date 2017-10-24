@@ -27,8 +27,8 @@ namespace OnlineRTO.Models
         public string ChasisNo { get; set; }
         public string Engine { get; set; }
         public string color { get; set; }
-        public Nullable<System.DateTime> RegistrationDate { get; set; }
-        public Nullable<System.DateTime> ValidUpto { get; set; }
+        public string RegistrationDate { get; set; }
+        public string ValidUpto { get; set; }
         public string Status { get; set; }
         public Nullable<int> RTOId { get; set; }
     

@@ -25,7 +25,8 @@ namespace OnlineRTo
         }
         public void NewRegistration(Registration objVehicle)
         {
-           
+            objVehicle.RTOId = 1;
+            objVehicle.Status = "Pending";
             dbRTOEntities.Registrations.Add(objVehicle);
             dbRTOEntities.SaveChanges();
         }
@@ -55,8 +56,14 @@ namespace OnlineRTo
 
         public void Approve(int RegId,Registration obj)
         {
+            DateTime myDateTime = DateTime.Now;
+            string RegistrationDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+            string validUpto = myDateTime.AddYears(10).ToString("yyyy-MM-dd HH:mm:ss");
             var existingdetails = dbRTOEntities.Registrations.FirstOrDefault(x => x.RegId == RegId);
             existingdetails.Status = obj.Status;
+            existingdetails.RegistrationNo = obj.RegistrationNo;
+            existingdetails.RegistrationDate =RegistrationDate;
+            existingdetails.ValidUpto = validUpto;
             dbRTOEntities.SaveChanges();
         }
     }

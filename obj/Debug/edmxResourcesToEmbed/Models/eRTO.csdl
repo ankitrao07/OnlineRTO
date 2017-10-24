@@ -55,8 +55,8 @@
     <Property Name="ChasisNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="RegistrationDate" Type="DateTime" Precision="0" />
-    <Property Name="ValidUpto" Type="DateTime" Precision="0" />
+    <Property Name="RegistrationDate" Type="String" />
+    <Property Name="ValidUpto" Type="String" />
     <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="RTOId" Type="Int32" />
     <NavigationProperty Name="Dealer" Relationship="Self.FK_Registration_ToDealer" FromRole="Registration" ToRole="Dealer" />

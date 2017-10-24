@@ -10,46 +10,45 @@
                         <table class="table table-striped table-bordered table-hover" id="tblDashBoard" cellspacing="0" align="center" style="width:100%;" ng-cloak>
                             <tr>
                                 <td><label class="col-md-4">Vehicle Owner:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Owner" placeholder="Vehicle Owner" /></td>
+                                <td><input type="text" id="txtOwner" class="col-md-8" data-ng-model="Owner" placeholder="Vehicle Owner" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Mobile:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Mobile" placeholder="Mobile" /></td>
+                                <td><input type="text" id="txtMobile" class="col-md-8" data-ng-model="Mobile" placeholder="Mobile" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Email</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Email" placeholder="Email" /></td>
+                                <td><input type="text" id="txtEmail" class="col-md-8" data-ng-model="Email" placeholder="Email" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Address:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Address" placeholder="Address" /></td>
+                                <td><input type="text" id="txtAddress" class="col-md-8" data-ng-model="Address" placeholder="Address" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Manufacture:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Manufacturer" placeholder="Manufacturer" /></td>
+                                <td><input type="text" id="txtManufacturer" class="col-md-8" data-ng-model="Manufacturer" placeholder="Manufacturer" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Vehicle:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Vehicle" placeholder="Vehicle Name" /></td>
+                                <td><input type="text" id="txtVehicle" class="col-md-8" data-ng-model="Vehicle" placeholder="Vehicle Name" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Chasis No:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="ChasisNo" placeholder="Chasis No" /></td>
+                                <td><input type="text" id="txtChasis" class="col-md-8" data-ng-model="ChasisNo" placeholder="Chasis No" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Color:</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Color" placeholder="Color" /></td>
+                                <td><input type="text" id="txtColor" class="col-md-8" data-ng-model="Color" placeholder="Color" /></td>
                             </tr>
                             <tr>
                                 <td><label class="col-md-4">Engine(cc):</label></td>
-                                <td><input type="text" class="col-md-8" data-ng-model="Engine" placeholder="Engine capacity" /></td>
+                                <td><input type="text" id="txtEngine" class="col-md-8" data-ng-model="Engine" placeholder="Engine capacity" /></td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td><button class="btn btn-success" type="submit" data-ng-click="save();" value="Submit">Submit</button></td>
-                            </tr>
-
                         </table>
+                    <div class="form-group col-md-10">
+                        <button type="submit" name="btnSubmit" class="col-md-offset-5 col-md-2 btn btn-primary" data-ng-click="save();" value="Submit"><i class="fa fa-save fa-fw"></i>Submit</button>
+                        <a href="showregistration" class="btn btn-primary col-md-offset-1 col-md-2"><i class="fa fa-fw fa-backward"></i>Cancel</a>
+                    </div>
                     </div>
                     </div>
                 </div>

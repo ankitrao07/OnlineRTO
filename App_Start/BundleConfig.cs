@@ -21,12 +21,14 @@ namespace OnlineRTO
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/MyScripts/CustomValidation.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap.min.css",
                       "~/Content/bootstrap-theme.min.css",
+                      "~/font-awesome/css/font-awesome.css",
                       "~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

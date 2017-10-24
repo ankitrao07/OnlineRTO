@@ -49,8 +49,8 @@
     <Property Name="ChasisNo" Type="varchar" MaxLength="100" />
     <Property Name="Engine" Type="varchar" MaxLength="50" />
     <Property Name="color" Type="varchar" MaxLength="50" />
-    <Property Name="RegistrationDate" Type="date" />
-    <Property Name="ValidUpto" Type="date" />
+    <Property Name="RegistrationDate" Type="varchar" MaxLength="100" />
+    <Property Name="ValidUpto" Type="varchar" MaxLength="100" />
     <Property Name="Status" Type="varchar" MaxLength="20" />
     <Property Name="RTOId" Type="int" />
   </EntityType>

@@ -31,8 +31,10 @@ if (Session["UID"] != null)
 }
 else if(Session["UID"] == null)
                 {
+   
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Dealer/RTO Login", "Index", "Home")</li>
+
+                    <li>@Html.ActionLink("Dealer/RTO Login", "Index", "Account")</li>
                     
                 </ul>
                 }

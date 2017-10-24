@@ -76,6 +76,7 @@ namespace OnlineRTO.Controllers
         [Route("api/RegistrationAPI/Approve/{id}")]
         public IHttpActionResult Approve(int id,Registration obj)
         {
+            obj.RegistrationNo = Utility.GenerateRegNo();
             repository.Approve(id, obj);
             return Ok();
         }
